@@ -1,0 +1,17 @@
+extends ./layouts/default.jade
+
+block content
+  //- include ../../JPH.jade
+  //- .row(data-control='interactive')
+  each item, i in global.help
+    <script>console.log("     #{item[i]}")</script>
+
+  h1 JPH
+  .row
+      .col-md-6
+        +jade
+          include:jadesrc partials/home.jade
+
+      .col-md-6
+        +html
+          include partials/home.jade

@@ -1,0 +1,16 @@
+
+
+mixin createBlokk(string, color)
+  - color = color || '#343434'
+  - var disp = 'inline-block'
+  - var trans = 'scale(1, 0.6);'
+  blokk(style="background:#{color}; color:#{color}; display:#{disp}; transform:#{trans}; font-family: 'Arial;")= string
+
+mixin blokk(howmany, color, lineHeight)
+  - var lorem = new global.LoremIpsum();
+  - for (var i = 0; i < howmany; i++) {
+    - var nextWord = lorem.getWord();
+    = ' '
+    mixin createBlokk(nextWord, color)
+  - }
+

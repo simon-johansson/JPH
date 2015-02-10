@@ -1,0 +1,39 @@
+//- https://gist.github.com/geedmo/5682742
+//- ----------------------------------
+//- Usage:
+//- include lorem
+//- p
+//-   mixin lorem(25)
+//- ----------------------------------
+
+//- new sentece after N words
+
+//- first letter to uppercase
+mixin capitalize(string)
+  = string.charAt(0).toUpperCase() + string.slice(1)
+//- begin a new sentence
+mixin beginSentence(string)
+  = '. '
+  mixin capitalize(string)
+
+//- howmany: number of words in paragraph
+//- loremipsum: include the paragraph typical initiation?
+mixin lorem(howmany, loremipsum)
+  - var colonEvery = 10;
+  - var lorem = new global.LoremIpsum();
+  //- include lorem ipsum?
+  if loremipsum || typeof loremipsum == 'undefined'
+    = 'Lorem ipsum dolor sit amet. '
+  - for (var i = 0; i < howmany; i++) {
+    - var nextWord = lorem.getWord();
+    if (i == 0)
+      mixin capitalize(nextWord)
+    else
+      if ! parseInt(i % colonEvery) && (howmany - i > colonEvery)
+        mixin beginSentence(nextWord)
+      else
+        = ' ' + nextWord
+        if i == howmany - 1
+          = '.'
+  - }
+

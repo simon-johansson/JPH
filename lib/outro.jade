@@ -1,0 +1,9 @@
+
+//- 'Globalizing' variables on the JPH object
+//- Has to be done, not enough to assign variables to global object
+
+- for(var key in JPH) {
+-   var isDefined = eval("typeof " + key + " !== 'undefined'")
+-   if (isDefined) throw new Error("a variable named '" + key + "' is already defined in the scope.")
+-   eval("var " + key + " = JPH[key]");
+- }

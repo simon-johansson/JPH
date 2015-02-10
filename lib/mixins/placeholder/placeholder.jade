@@ -1,0 +1,16 @@
+mixin placeholder()
+  - var rmHash = function(str){return str ? str.replace('#', '') : void 0;}
+  - var URLify = function(str){return str ? str.replace(/\s/g, '+') : void 0;}
+  - var arg = Array.prototype.slice.call(arguments);
+  if global._.isObject(arg[0])
+    - var width = arg[0].w || arg[0].width || arg[0].h || arg[0].height || 100;
+    - var height = arg[0].h || arg[0].height || width;
+    - var bg = rmHash(arg[0].bg || arg[0].bgColor || arg[0].background);
+    - var fg = rmHash(arg[0].fg || arg[0].fgColor || arg[0].foreground);
+    - var text = URLify(arg[0].t || arg[0].text);
+  else
+    - var width = arg[0] || 100;
+    - var height = arg[1] || width;
+  img(src!= "http://placehold.it/#{width || height || 100}x#{height}/#{bg || 'CCCCCC'}/#{fg || 'B5B5B5'}#{text ? '&text='+text : ''}",
+      alt="Placeholder image from placehold.it/")&attributes(attributes)
+

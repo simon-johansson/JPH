@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    title This is an example
+    link(rel="stylesheet" type="text/css" href="foundation.css")
+    script(type="text/javascript" src="jquery.js")
+    script(src="foundation.js")
+    include ../JPH.jade
+    style.
+      img {
+        margin: auto;
+        display: block;
+        margin-top: 20px !important;
+      }
+      blockquote {
+        display: inline-block;
+        width: 60%;
+        margin-left: 20px;
+        vertical-align: top;
+      }
+      .vcard {
+        margin-bottom: 0;
+      }
+  body
+
+    //- each val, key in person()
+    //-   =key +' : '+ val
+    //-   br
+
+    .container
+      .row
+        .large-12.columns
+          h1 Page Header
+    each person in people(5)
+      .row(data-equalizer)
+        .large-3.columns
+          .panel.callout.radius(data-equalizer-watch)
+            +avatar
+        .large-9.columns
+          .panel(data-equalizer-watch)
+            ul.vcard
+              li.fn= person.name
+              li.street-address= person.address.streetA
+              li.locality= person.address.city
+              li
+                span.state= person.address.state + ', '
+                span.zip= person.address.zipcode
+              li.phone= person.phone
+              li.email
+                a(href="#")= person.email
+
+            blockquote Those people who think they know everything are a great annoyance to those of us who do.
+              cite Isaac Asimov
+
+
+    script.
+      $(document).foundation();
+
