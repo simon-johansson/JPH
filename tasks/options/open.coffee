@@ -1,5 +1,3 @@
-module.exports = {
-  server: {
+module.exports =
+  server:
     url: 'http://localhost:<%= express.options.port %>'
-  }
-};

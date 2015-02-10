@@ -15,5 +15,5 @@ describe 'maybe mixin', ->
             '   h1 Maybe... just maybe.'].join('\n\t'), ->
     jsdom(html: html, src: [jquery])
     it 'Should create ~50 elements', (done) ->
-      expect($('h1').length).to.be.within(5, 95);
+      expect($('h1').length).to.be.within(5, 95)
       done()
