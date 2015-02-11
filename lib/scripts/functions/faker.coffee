@@ -6,7 +6,7 @@ module.exports = {
   internet: faker.internet,
   phone: faker.phone,
   company: faker.company,
-  image: faker.image,
+  # image: faker.image,
   lorem: faker.lorem,
   helpers: faker.helpers,
   date: faker.date,

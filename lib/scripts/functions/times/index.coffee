@@ -1,7 +1,7 @@
 _ = require 'lodash'
 
 times = (times) ->
-  _.range 1, times + 1
+  _.range times
 
 module.exports = {
   times: times

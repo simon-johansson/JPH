@@ -3,10 +3,9 @@ imports = [
   (require('./rand/index.coffee')),
   (require('./lodash.coffee')),
   (require('./faker.coffee')),
-  (require('./image.coffee')),
-  (require('./times.coffee')),
-  (require('./person.coffee')),
-  (require('./people.coffee')),
+  (require('./image/index.coffee')),
+  (require('./times/index.coffee')),
+  (require('./person/index.coffee')),
 ]
 
 for obj, index in imports
