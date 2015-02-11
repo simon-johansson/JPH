@@ -1,6 +1,6 @@
-test
-tasks
-examples
-History.md
+test/
+tasks/
 examples/
 docs/
+.tmp/
+History.md

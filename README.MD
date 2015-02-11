@@ -1,6 +1,8 @@
 
 ##TODO
 * Visa coverage för testerna, typ travis.
+* Kolla upp schysta plugins för att skapa libs (publicera, inkrementera versioner mm.)
+* Release History
 
 ## Tests
 * Unit tests för coffee-functionerna
