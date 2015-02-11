@@ -1,4 +1,5 @@
 module.exports =
+
   scripts:
     options:
       reporter: 'spec'
@@ -9,6 +10,7 @@ module.exports =
         'test/globals.js'
       ]
     src: [ 'lib/scripts/**/*.spec.coffee' ]
+
   mixins:
     options:
       reporter: 'spec'
@@ -19,6 +21,7 @@ module.exports =
         'test/globals.js'
       ]
     src: [ 'lib/mixins/**/*.spec.coffee' ]
+
   test:
     options:
       reporter: 'spec'
@@ -28,4 +31,4 @@ module.exports =
         'coffee-script/register'
         'test/globals.js'
       ]
-    src: [ 'lib/mixins/blokk/*.spec.coffee' ]
+    src: [ 'lib/scripts/functions/times/*.spec.coffee' ]
