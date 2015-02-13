@@ -11,11 +11,6 @@ generateHTML = (functionCall) ->
 
 describe 'times', ->
 
-  # describe 'times()', ->
-  #   it 'Should throw an error if no arguments are passed', ->
-  #     expect(-> generateHTML('times()')).to.throw(Error)
-  #     expect(-> times()).to.throw(Error)
-
   describe 'times(10)', ->
     html = generateHTML 'times(10)'
     result = times(10)
