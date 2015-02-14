@@ -1,13 +1,11 @@
 { person, people } = require('./')
 
-getHTML = (selector) -> $(selector).html()
-
 personJadeTemplate = '''
   include /JPH.jade
 
-  p.typeof.person= typeof person()
+  p.typeof.person= typeof person
 
-  each val, key in person()
+  each val, key in person.__proto__
     p(class="typeof #{key}")= Array.isArray(val) || typeof val
 '''
 
@@ -18,17 +16,16 @@ peopleJadeTemplate = '''
     p.people.name= person.name
 '''
 
+getHTML = (selector) -> $(selector).html()
 generateHTML = (jadeCode) ->
   jade.render jadeCode, { basedir: baseDir, pretty: true }
 
 describe 'person', ->
 
   describe 'person()', ->
-    # html = generateHTML(personJadeTemplate)
-    result = person.name
-    console.log person.name
-    console.log person.name
-    console.log person.name
+    html = generateHTML(personJadeTemplate)
+    # result = person.name
+    console.log html
     # jsdom(html: html, src: [jquery])
 
     # it 'Should generate an person object', ->

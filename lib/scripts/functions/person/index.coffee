@@ -1,29 +1,38 @@
 faker = require('faker').helpers.createCard
 
-Function::property = (prop, desc) ->
-  Object.defineProperty @prototype, prop, desc
+# Function::property = (prop, desc) ->
+#   Object.defineProperty @prototype, prop, desc
+
+Function::getters = (props) ->
+  for key, val of props
+    Object.defineProperty @prototype, key, val
+
+# Function::getter = (prop, get) ->
+#   Object.defineProperty @prototype, prop, {get, configurable: yes}
+
+# defineProperty = (obj, prop, val) ->
+#   Object.defineProperty obj, prop,
+#     enumerable: true
+#     get: -> val
 
 class Person
-  @property 'name', get: -> faker().name
-  @property 'username', get: -> faker().username
-  @property 'email', get: -> faker().email
-  @property 'address', get: -> faker().address
-  @property 'phone', get: -> faker().phone
-  @property 'website', get: -> faker().website
-  @property 'company', get: -> faker().company
-  @property 'posts', get: -> faker().posts
-  @property 'accountHistory', get: -> faker().accountHistory
+  @getters
+    'name':           {get: (-> faker().name), enumerable: true}
+    'username':       {get: (-> faker().username), enumerable: true}
+    'email':          {get: (-> faker().email), enumerable: true}
+    'address':        {get: (-> faker().address), enumerable: true}
+    'phone':          {get: (-> faker().phone), enumerable: true}
+    'website':        {get: (-> faker().website), enumerable: true}
+    'company':        {get: (-> faker().company), enumerable: true}
+    'posts':          {get: (-> faker().posts), enumerable: true}
+    'accountHistory': {get: (-> faker().accountHistory), enumerable: true}
 
 # p = new Person()
-# console.log p.email
+# console.log p.__proto__
 # console.log p.name
-# console.log p.email
-
-person = new Person()
-people = (howmany) ->
-  for [1..howmany] then person()
+# console.log p.name
 
 module.exports = {
-  person: person,
-  people: people,
+  person: new Person(),
+  people: (howmany) -> for [1..howmany] then new Person(),
 }
