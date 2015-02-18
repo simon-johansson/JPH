@@ -18,7 +18,7 @@ peopleJadeTemplate = '''
 
 describe 'person', ->
 
-  describe 'person()', ->
+  describe 'person', ->
     html = generateHTML(personJadeTemplate)
     result = person.__proto__
     jsdom(html: html, src: [jquery])
@@ -27,35 +27,35 @@ describe 'person', ->
       expect(result).to.be.a "object"
       expect(getHTML('.typeof.person')).to.be.eql "object"
 
-    it 'Should have name property', ->
+    it 'Should have "name" property', ->
       expect(getHTML('.typeof.name')).to.be.eql "string"
       expect(result.name).to.be.a "string"
 
-    it 'Should have email property', ->
+    it 'Should have "email" property', ->
       expect(getHTML('.typeof.email')).to.be.eql "string"
       expect(result.email).to.be.a "string"
 
-    it 'Should have adress property', ->
+    it 'Should have "adress" property', ->
       expect(getHTML('.typeof.address')).to.be.eql "object"
       expect(result.address).to.be.a "object"
 
-    it 'Should have phone property', ->
+    it 'Should have "phone" property', ->
       expect(getHTML('.typeof.phone')).to.be.eql "string"
       expect(result.phone).to.be.a "string"
 
-    it 'Should have website property', ->
+    it 'Should have "website" property', ->
       expect(getHTML('.typeof.website')).to.be.eql "string"
       expect(result.website).to.be.a "string"
 
-    it 'Should have company property', ->
+    it 'Should have "company" property', ->
       expect(getHTML('.typeof.company')).to.be.eql "object"
       expect(result.company).to.be.a "object"
 
-    it 'Should have (blog) posts property', ->
+    it 'Should have (blog) "posts" property', ->
       expect(getHTML('.typeof.posts')).to.be.eql "true"
       expect(result.posts).to.be.a "array"
 
-    it 'Should have accountHistory property', ->
+    it 'Should have "accountHistory" property', ->
       expect(getHTML('.typeof.accountHistory')).to.be.eql "true"
       expect(result.accountHistory).to.be.a "array"
 
