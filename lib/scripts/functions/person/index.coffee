@@ -1,36 +1,30 @@
+_ = require('lodash')
 faker = require('faker').helpers.createCard
+utils = require '../utils.coffee'
 
-# Function::property = (prop, desc) ->
-#   Object.defineProperty @prototype, prop, desc
+# This approach makes for a clean API, e.g 'person.name' instead of 'person().name'
+# or person.name(). Drawback is that the properites are available on the prototype
+# and will not show up in for example a for loop in the Jade-template unless you
+# loop over person.__proto__ (see tests)
 
-Function::getters = (props) ->
-  for key, val of props
-    Object.defineProperty @prototype, key, val
+extend = (obj) ->
+  _.assign obj, { enumerable: true }
 
-# Function::getter = (prop, get) ->
-#   Object.defineProperty @prototype, prop, {get, configurable: yes}
+properties =
+  'name':           (get: -> faker().name)
+  'username':       (get: -> faker().username)
+  'email':          (get: -> faker().email)
+  'address':        (get: -> faker().address)
+  'phone':          (get: -> faker().phone)
+  'website':        (get: -> faker().website)
+  'company':        (get: -> faker().company)
+  'posts':          (get: -> faker().posts)
+  'accountHistory': (get: -> faker().accountHistory)
 
-# defineProperty = (obj, prop, val) ->
-#   Object.defineProperty obj, prop,
-#     enumerable: true
-#     get: -> val
+extend properties[key] for key, val of properties
 
 class Person
-  @getters
-    'name':           {get: (-> faker().name), enumerable: true}
-    'username':       {get: (-> faker().username), enumerable: true}
-    'email':          {get: (-> faker().email), enumerable: true}
-    'address':        {get: (-> faker().address), enumerable: true}
-    'phone':          {get: (-> faker().phone), enumerable: true}
-    'website':        {get: (-> faker().website), enumerable: true}
-    'company':        {get: (-> faker().company), enumerable: true}
-    'posts':          {get: (-> faker().posts), enumerable: true}
-    'accountHistory': {get: (-> faker().accountHistory), enumerable: true}
-
-# p = new Person()
-# console.log p.__proto__
-# console.log p.name
-# console.log p.name
+Object.defineProperties(Person::, properties)
 
 module.exports = {
   person: new Person(),
