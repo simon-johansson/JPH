@@ -31,4 +31,5 @@ module.exports =
         'coffee-script/register'
         'test/globals.js'
       ]
-    src: [ 'lib/scripts/functions/times/*.spec.coffee' ]
+    # src: [ 'lib/scripts/functions/rand/*.spec.coffee' ]
+    src: [ 'lib/mixins/input/*.spec.coffee' ]

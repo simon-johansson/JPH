@@ -3,7 +3,7 @@ external = [
   'lodash'
 ]
 src = [
-  'lib/scripts/functions/**/*.coffee',
+  'lib/scripts/**/*.coffee',
   '!lib/scripts/functions/**/*.spec.coffee',
 ]
 

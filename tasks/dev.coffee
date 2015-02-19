@@ -10,6 +10,6 @@ module.exports = (grunt) ->
     # run tests silent
     'express:dev' # starts the dev/docs server
     'wait' # wait 1.5sec for server to start before browser window opens
-    'open'
+    # 'open'
     'watch' # watch for changes, then compiles lib alt. livereload the browser
   ]

@@ -32,3 +32,7 @@ module.exports =
       'wait'
     ]
     options: nospawn: true
+
+  tests:
+    files: ['lib/**/*.spec.coffee']
+    tasks: ['mochaTest:test']
