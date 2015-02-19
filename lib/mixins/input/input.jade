@@ -1,0 +1,52 @@
+mixin inp(type, attrs)
+  - id = internet.password(8, true, '', 'a')
+  if attrs.label
+    label(for="#{id}")= attrs.label
+  input(type="#{type}" name="#{id}" id="#{id}")&attributes(attrs)
+
+mixin input
+  +inp('text', attributes)
+mixin input-button
+  +inp('button', attributes)
+mixin input-checkbox
+  +inp('checkbox', attributes)
+mixin input-color
+  +inp('color', attributes)
+mixin input-date
+  +inp('date', attributes)
+mixin input-datetime
+  +inp('datetime', attributes)
+mixin input-email
+  +inp('email', attributes)
+mixin input-file
+  +inp('file', attributes)
+mixin input-hidden
+  +inp('hidden', attributes)
+mixin input-image
+  +inp('image', attributes)
+mixin input-month
+  +inp('month', attributes)
+mixin input-number
+  +inp('number', attributes)
+mixin input-password
+  +inp('password', attributes)
+mixin input-radio
+  +inp('radio', attributes)
+mixin input-range
+  +inp('range', attributes)
+mixin input-reset
+  +inp('reset', attributes)
+mixin input-search
+  +inp('search', attributes)
+mixin input-submit
+  +inp('submit', attributes)
+mixin input-tel
+  +inp('tel', attributes)
+mixin input-text
+  +inp('text', attributes)
+mixin input-time
+  +inp('time', attributes)
+mixin input-url
+  +inp('url', attributes)
+mixin input-week
+  +inp('week', attributes)
