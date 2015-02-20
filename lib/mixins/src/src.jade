@@ -1,0 +1,8 @@
+mixin src(path)
+  - extension = path.split('/').pop().split('.').pop()
+  if extension === 'css'
+    link(rel="stylesheet", href="#{path}")
+  else if extension === 'js'
+    script(type="text/javascript", src="#{path}")
+  else
+    - throw new InvalidPathError(path);
