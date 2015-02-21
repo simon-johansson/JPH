@@ -1,6 +1,6 @@
 { person, people } = require('./')
 
-personJadeTemplate = '''
+personTemplate = '''
   include /JPH.jade
 
   p.typeof.person= typeof person
@@ -9,7 +9,7 @@ personJadeTemplate = '''
     p(class="typeof #{key}")= Array.isArray(val) || typeof val
 '''
 
-peopleJadeTemplate = '''
+peopleTemplate = '''
   include /JPH.jade
 
   each person in people(10)
@@ -19,7 +19,7 @@ peopleJadeTemplate = '''
 describe 'person', ->
 
   describe 'person', ->
-    html = generateHTML(personJadeTemplate)
+    html = generateHTML(personTemplate)
     result = person.__proto__
     jsdom(html: html, src: [jquery])
 
@@ -63,7 +63,7 @@ describe 'person', ->
 describe 'people', ->
 
   describe 'people(10)', ->
-    html = generateHTML(peopleJadeTemplate)
+    html = generateHTML(peopleTemplate)
     result = people(10)
     jsdom(html: html, src: [jquery])
 

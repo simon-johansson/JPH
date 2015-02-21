@@ -1,17 +1,14 @@
 
-generateHTML = (functionCall) ->
-  jadeCode = """
-    include /JPH.jade
-    +avatar
-  """
-  jade.render jadeCode, { basedir: baseDir, pretty: true }
-
 describe 'avatar mixin', ->
 
   describe '+avatar', ->
-    html = generateHTML()
+    html = generateHTML '+avatar'
     jsdom(html: html, src: [jquery])
-    it 'Should generate <img> tag with avatar from uifaces.com', ->
+
+    it 'Should generate an <img> tag', ->
       $el = $('img')
-      expect($el.length).to.be.eql(1)
-      expect($el.attr('src')).to.contain('uifaces')
+      expect($el).to.have.length 1
+
+    it 'src for <img> tag should point random avatar supplied by uifaces.com', ->
+      $el = $('img')
+      expect($el.attr('src')).to.contain 'uifaces'

@@ -1,54 +1,57 @@
-expect = require("chai").expect
-jade = require 'jade'
-fs = require "fs"
-jquery = fs.readFileSync "#{__dirname}/../jquery.js", "utf-8"
-jsdom = require 'mocha-jsdom'
 
-path = "#{__dirname}/placeholder.spec.jade"
-html = jade.renderFile path, { pretty: true }
+template = (functionCall) ->
+  """
+  #{functionCall}
+  """
 
 describe 'placeholder mixin', ->
 
-  describe '+placeholder', ->
-    jsdom(html: html, src: [jquery])
-    it 'Should create a "standard" placeholder <img> with the dimensions 100x100', (done) ->
-      $el = $('#t1 img')
-      expect($el.length).to.be.eql(1)
-      expect($el.attr('src')).to.contain('100x100')
-      expect($el.prop("tagName")).to.be.eql('IMG')
-      done()
+  functionCall_1 = '+placeholder'
+  describe functionCall_1, ->
+    html = generateHTML template functionCall_1
+    jsdom html: html, src: [jquery]
 
-  describe '+placeholder(200)', ->
-    jsdom(html: html, src: [jquery])
-    it 'Should create a placeholder with the dimensions 200x200', (done) ->
-      $el = $('#t2 img')
-      expect($el.attr('src')).to.contain('200x200')
-      done()
+    it 'Should create a "standard" placeholder <img> with the dimensions 100x100', ->
+      expect($('img').length).to.be.eql 1
+      expect($('img').attr 'src' ).to.contain '100x100'
+      expect($('img').prop "tagName" ).to.be.eql 'IMG'
 
-  describe '+placeholder(200, 500)', ->
-    jsdom(html: html, src: [jquery])
-    it 'Should create a placeholder with the dimensions 200x500', (done) ->
-      $el = $('#t3 img')
-      expect($el.attr('src')).to.contain('200x500')
-      done()
+  functionCall_2 = '+placeholder(200)'
+  describe functionCall_2, ->
+    html = generateHTML template functionCall_2
+    jsdom html: html, src: [jquery]
 
-  describe '+placeholder({w:313, h:666})', ->
-    jsdom(html: html, src: [jquery])
-    it 'Should be able to pass options argument. Expect the dimensions of the placeholder to be 313x666', (done) ->
-      $el = $('#t4 img')
-      expect($el.attr('src')).to.contain('313x666')
-      done()
+    it 'Should create a placeholder with the dimensions 200x200', ->
+      expect($('img').attr 'src' ).to.contain '200x200'
 
-  describe '+placeholder({h:200, bg:"87ffb8", fg:#"2a0069"})', ->
-    jsdom(html: html, src: [jquery])
-    it 'Should be able to configure foreground and background color with options argument', (done) ->
-      $el = $('#t5 img')
-      expect($el.attr('src')).to.contain('200x200/87ffb8/2a0069')
-      done()
+  functionCall_3 = '+placeholder(200, 500)'
+  describe functionCall_2, ->
+    html = generateHTML template functionCall_3
+    jsdom html: html, src: [jquery]
 
-  describe '+placeholder({h:200, w:500, background:"87ffb8", fgColor:"#2a0069", text: "This is a test"})', ->
-    jsdom(html: html, src: [jquery])
-    it 'Should be able to specify placeholder text (among other stuff) with options argument', (done) ->
-      $el = $('#t6 img')
-      expect($el.attr('src')).to.contain('500x200/87ffb8/2a0069&text=This+is+a+test')
-      done()
+    it 'Should create a placeholder with the dimensions 200x500', ->
+      expect($('img').attr 'src' ).to.contain '200x500'
+
+  functionCall_4 = '+placeholder({w:313, h:666})'
+  describe functionCall_4, ->
+    html = generateHTML template functionCall_4
+    jsdom html: html, src: [jquery]
+
+    it 'Should be able to pass options argument. Expect the dimensions of the placeholder to be 313x666', ->
+      expect($('img').attr 'src' ).to.contain '313x666'
+
+  functionCall_5 = '+placeholder({h:200, bg:"87ffb8", fg:"2a0069"})'
+  describe functionCall_5, ->
+    html = generateHTML template functionCall_5
+    jsdom html: html, src: [jquery]
+
+    it 'Should be able to configure foreground and background color with options argument', ->
+      expect($('img').attr 'src' ).to.contain '200x200/87ffb8/2a0069'
+
+  functionCall_6 = '+placeholder({h:200, w:500, background:"87ffb8", fgColor:"#2a0069", text: "This is a test"})'
+  describe functionCall_6, ->
+    html = generateHTML template functionCall_6
+    jsdom html: html, src: [jquery]
+
+    it 'Should be able to specify placeholder text (among other stuff) with options argument', ->
+      expect($('img').attr 'src' ).to.contain '500x200/87ffb8/2a0069&text=This+is+a+test'
