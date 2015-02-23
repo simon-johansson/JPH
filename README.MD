@@ -1,8 +1,6 @@
 # Jade Prototyping Helper
 A collections of mixins and functions with focus on randomization for Jade to aid in the creation of rapid prototypes.
 
-add shields.io shields (travis, mm.)
-
 ## Synopsis
 
 At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
@@ -27,7 +25,7 @@ Depending on the size of the project, if it is small and simple enough the refer
 
 Describe and show how to run the tests with code examples.
 
-```
+```bash
 npm install
 npm test
 ```
@@ -41,11 +39,10 @@ Let people know how they can dive into the project, include important links to t
 MIT
 
 ##TODO
-* Visa coverage för testerna, typ travis.
-* Kolla upp schysta plugins för att skapa libs (publicera, inkrementera versioner mm.)
-* Release History
-
-## Tests
-* Unit tests för coffee-functionerna
-* Capebara-testser (eller liknande) för att testa mixins mm.
-* Spara en test-fil i varje mixin-mapp?
+* add npm-release lib (or similar)
+* Add a release history
+* add shields.io shields (travis, mm.)
+* clean up the devDependencies
+* add comments for the mixins and functions (what kind of arguments to they take etc.)
+* mocha.opts? How to use?
+* break package.json up into seperate files
