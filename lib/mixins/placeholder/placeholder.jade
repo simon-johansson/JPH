@@ -2,7 +2,7 @@ mixin placeholder()
   - var rmHash = function(str){return str ? str.replace('#', '') : void 0;}
   - var URLify = function(str){return str ? str.replace(/\s/g, '+') : void 0;}
   - var arg = Array.prototype.slice.call(arguments);
-  if global._.isObject(arg[0])
+  if lodash.isObject(arg[0])
     - var width = arg[0].w || arg[0].width || arg[0].h || arg[0].height || 100;
     - var height = arg[0].h || arg[0].height || width;
     - var bg = rmHash(arg[0].bg || arg[0].bgColor || arg[0].background);

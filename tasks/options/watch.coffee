@@ -35,4 +35,4 @@ module.exports =
 
   tests:
     files: ['lib/**/*.spec.coffee']
-    tasks: ['mochaTest:test']
+    tasks: ['mochaTest:mixins']

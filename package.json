@@ -41,7 +41,8 @@
     "twbs": "0.0.6",
     "uglify-js": "^2.4.16",
     "grunt-concurrent": "^1.0.0",
-    "grunt-open": "^0.2.3"
+    "grunt-open": "^0.2.3",
+    "jsdom": "^3.0.0"
   },
   "directories": {
     "doc": "docs",

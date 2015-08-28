@@ -7,9 +7,9 @@ mixin createBlokk(string, color)
   blokk(style="background:#{color}; color:#{color}; display:#{disp}; transform:#{trans}; font-family: 'Arial;")= string
 
 mixin blokk(howmany, color, lineHeight)
-  - var lorem = new global.LoremIpsum();
+  //- - var lorem = new global.LoremIpsum();
   - for (var i = 0; i < howmany; i++) {
-    - var nextWord = lorem.getWord();
+    - var nextWord = lorem.words(1);
     = ' '
     mixin createBlokk(nextWord, color)
   - }

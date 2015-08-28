@@ -1,5 +1,5 @@
 mixin times(count)
-  - if(!count && !global._.isNumber(count)) throw "Usage Error: +times requires a count parameter.";
+  - if(!count && typeof count !== 'number') throw "Usage Error: +times requires a count parameter.";
   - for (var i = 1; i <= count; i++) {
     block
   - }

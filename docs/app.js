@@ -4,7 +4,6 @@ var fs = require('fs');
 var marked = require('marked');
 var less = require('less-file');
 var browserify = require('browserify-middleware');
-var brfs = require('brfs');
 var CodeMirror = require('highlight-codemirror');
 var highlightJade = require('jade-highlighter');
 var favicon = require('static-favicon');

@@ -21,15 +21,3 @@ module.exports =
         'test/globals.js'
       ]
     src: [ 'lib/mixins/**/*.spec.coffee' ]
-
-  test:
-    options:
-      reporter: 'spec'
-      quiet: false
-      clearRequireCache: true
-      require: [
-        'coffee-script/register'
-        'test/globals.js'
-      ]
-    # src: [ 'lib/scripts/functions/rand/*.spec.coffee' ]
-    src: [ 'lib/mixins/input/*.spec.coffee' ]

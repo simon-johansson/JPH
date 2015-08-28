@@ -1,7 +1,7 @@
 expect = require("chai").expect
 jade = require 'jade'
 fs = require "fs"
-jquery = fs.readFileSync "#{__dirname}/../jquery.js", "utf-8"
+# jquery = fs.readFileSync "#{__dirname}/../jquery.js", "utf-8"
 jsdom = require 'mocha-jsdom'
 
 # ['abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife', 'fashion', 'people', 'nature', 'sports', 'technics', 'transport']

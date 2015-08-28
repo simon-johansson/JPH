@@ -1,5 +1,5 @@
 mixin rand(minOrMax, max)
-  - if(typeof minOrMax === 'undefined') throw "Usage Error: +rand() requires at least one argument.";
-  - for (var i = 1; i <= random(minOrMax, max); i++) {
+  - if(!lodash.isNumber(minOrMax)) throw "Usage Error: +rand() requires at least one argument.";
+  - for (var i = 1; i <= lodash.random(minOrMax, max); i++) {
     block
   - }

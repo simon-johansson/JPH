@@ -1,28 +1,6 @@
-include ../../../JPH.jade
 
++avatar
 
-//- div= name.firstName()
-//- div= internet.email()
-//- div= internet.color()
-//- div= address.country()
-//- img(src="#{image.avatar()}")
-//- p= lorem.paragraph()
-
-//- +avatar
-
-//- p
-//-   +blokk(20)
-
-//- +grid(1200)
-
-//- +image('business')
-
-//- each index in times(5)
-//-   div= index
-
-//- each person in people(3)
-//-   div= person.name + " - " + person.email
-
-//- +lorem(20)
-
-h1= _.sample([1,2,3,4,5])
++rand(10, 20)
+  = name.findName()
+  br

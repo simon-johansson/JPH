@@ -6,8 +6,6 @@
 //-   mixin lorem(25)
 //- ----------------------------------
 
-//- new sentece after N words
-
 //- first letter to uppercase
 mixin capitalize(string)
   = string.charAt(0).toUpperCase() + string.slice(1)
@@ -16,16 +14,17 @@ mixin beginSentence(string)
   = '. '
   mixin capitalize(string)
 
-//- howmany: number of words in paragraph
-//- loremipsum: include the paragraph typical initiation?
-mixin lorem(howmany, loremipsum)
+mixin lorem()
+  - var args = Array.prototype.slice.call(arguments);
+  - var min = args[0]
+  - var max = args[1]
   - var colonEvery = 10;
-  - var lorem = new global.LoremIpsum();
-  //- include lorem ipsum?
-  if loremipsum || typeof loremipsum == 'undefined'
-    = 'Lorem ipsum dolor sit amet. '
+  if max
+    - var howmany = lodash.random(min, max);
+  else
+    - var howmany = min;
   - for (var i = 0; i < howmany; i++) {
-    - var nextWord = lorem.getWord();
+    - var nextWord = lorem.words(1)[0];
     if (i == 0)
       mixin capitalize(nextWord)
     else

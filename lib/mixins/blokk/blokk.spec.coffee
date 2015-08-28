@@ -18,6 +18,6 @@ describe 'blokk mixin', ->
   describe '+blokk(25, "#87ffb8")', ->
     html = generateHTML('+blokk(25, "#87ffb8")')
     jsdom(html: html, src: [jquery])
-    it 'Should create blokks in the right (#87ffb8) color', (done) ->
+    it 'Should create blokks in the right (#87ffb8) color', ->
       attrs = $('blokk').first().attr('style')
       expect(attrs).to.contain('#87ffb8')

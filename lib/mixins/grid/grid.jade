@@ -1,5 +1,7 @@
 //- Error om man inte anger bredd
 mixin grid(width, cols, gutter)
+  //- if typeof width === 'undefined'
+  //-   - var width = 800;
   style.
     body {
       background: url("http://griddle.it/#{width}-#{cols}-#{gutter}") repeat-y center top !important;
