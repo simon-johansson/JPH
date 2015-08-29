@@ -6,12 +6,24 @@ block content
 
   h1 JPH
   .row
+    .col-md-12
+      h2 +avatar
     .col-md-6
       +jade
-        include:jadesrc partials/home.jade
+        include:jadesrc partials/avatar.jade
 
     .col-md-6
       +html
-        include partials/home.jade
+        include partials/avatar.jade
 
-  //- include partials/test.jade
+  .row
+    .col-md-12
+      h2 +blokk()
+    .col-md-6
+      +jade
+        include:jadesrc partials/blokk.jade
+
+    .col-md-6
+      +html
+        include partials/blokk.jade
+
