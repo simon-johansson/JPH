@@ -4,26 +4,213 @@ extends ./layouts/default.jade
 block content
   include ../../JPH.jade
 
-  h1 JPH
   .row
-    .col-md-12
-      h2 +avatar
-    .col-md-6
-      +jade
-        include:jadesrc partials/avatar.jade
+    .col-md-2
+      br
+      .sidebar
+        b Mixins
+        ul
+          li
+            a(href="#lorem") lorem
+          li
+            a(href="#blokk") blokk
+          li
+            a(href="#image") image
+          li
+            a(href="#placeholder") placeholder
+          li
+            a(href="#maybe") maybe
+          li
+            a(href="#times") times
+          li
+            a(href="#rand") rand
+          li
+            a(href="#wrap") wrap
 
-    .col-md-6
-      +html
-        include partials/avatar.jade
+        b Javascript
+        ul
+          li
+            a(href="#name") name
 
-  .row
-    .col-md-12
-      h2 +blokk()
-    .col-md-6
-      +jade
-        include:jadesrc partials/blokk.jade
+    .col-md-10
+      h1 JPH
 
-    .col-md-6
-      +html
-        include partials/blokk.jade
+      .row
+        .col-md-12
+          +jade
+            :jadesrc
+              $ npm install jade-prototyping-helpers
+
+      h2 Mixins
+      .row
+        .col-md-12
+          h3
+            a(name="lorem") +lorem([words=0], [max words=1])
+          p Generate random gibbrish words.
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/lorem_1.jade
+        .col-md-6
+          +html
+            include partials/lorem_1.jade
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/lorem_2.jade
+        .col-md-6
+          +html
+            include partials/lorem_2.jade
+
+      .row
+        .col-md-12
+          h3
+            a(name="blokk") +blokk([blocks=0], [color='#343434'])
+          p Generate text like blocks.
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/blokk_1.jade
+        .col-md-6
+          +html
+            include partials/blokk_1.jade
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/blokk_2.jade
+        .col-md-6
+          +html
+            include partials/blokk_2.jade
+
+      .row
+        .col-md-12
+          h3
+            a(name="image") +image({category, width, height})
+          p <code>avatar</code>, <code>abstract</code>, <code>animals</code>, <code>business</code>, <code>cats</code>,
+            <code>city</code>, <code>food</code>, <code>nightlife</code>, <code>fashion</code>, <code>people</code>,
+            <code>nature</code>, <code>sports</code>, <code>technics</code>, <code>transport</code>
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/image_1.jade
+        .col-md-6
+          +html
+            include partials/image_1.jade
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/image_2.jade
+        .col-md-6
+          +html
+            include partials/image_2.jade
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/image_3.jade
+        .col-md-6
+          +html
+            include partials/image_3.jade
+
+      .row
+        .col-md-12
+          h3
+            a(name="placeholder") +placeholder({width, height, bgColor, fgColor, text})
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/placeholder_1.jade
+        .col-md-6
+          +html
+            include partials/placeholder_1.jade
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/placeholder_2.jade
+        .col-md-6
+          +html
+            include partials/placeholder_2.jade
+
+      .row
+        .col-md-12
+          h3
+            a(name="maybe") +maybe
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/maybe.jade
+        .col-md-6
+          +html
+            include partials/maybe.jade
+
+      .row
+        .col-md-12
+          h3
+            a(name="times") +times(n)
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/times.jade
+        .col-md-6
+          +html
+            include partials/times.jade
+
+      .row
+        .col-md-12
+          h3
+            a(name="rand") +rand([min=0], [max=1])
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/rand_1.jade
+        .col-md-6
+          +html
+            include partials/rand_1.jade
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/rand_2.jade
+        .col-md-6
+          +html
+            include partials/rand_2.jade
+
+      .row
+        .col-md-12
+          h3
+            a(name="wrap") +wrap('tag', array)
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/wrap.jade
+        .col-md-6
+          +html
+            include partials/wrap.jade
+
+      h2 Javascript
+      .row
+        .col-md-12
+          h3
+            a(name="name") name
+
+      .row
+        .col-md-6
+          +jade
+            include:jadesrc partials/name.jade
+        .col-md-6
+          +html
+            include partials/name.jade
+
 
