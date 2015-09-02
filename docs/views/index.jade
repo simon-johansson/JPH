@@ -8,6 +8,12 @@ block content
     .col-md-2
       br
       .sidebar
+        b Install
+        br
+        b Usage
+        br
+        b Tips
+        br
         b Mixins
         ul
           li
@@ -33,18 +39,38 @@ block content
             a(href="#name") name
 
     .col-md-10
-      h1 JPH
+      h1 Jade Prototyping Helpers
+      blockquote
+        p Collection of mixins and scripts to help in creating rapid front-end prototypes using Jade. Big focus on randomization and 'real' data.
+
+      p This is needed because...
 
       .row
         .col-md-12
+          h2 Install
+          p
+            b Using npm
           +jade
-            :jadesrc
+            :shellsrc
               $ npm install jade-prototyping-helpers
+          p
+            b Using bower
+          +jade
+            :shellsrc
+              $ bower install jade-prototyping-helpers
+          p
+            b Manually
+
+          h2 Usage
+
+          h2 Tips
+          p Don´t precompile the Jade template
+          p Don´t use in production
 
       h2 Mixins
       .row
         .col-md-12
-          h3
+          h4
             a(name="lorem") +lorem([words=0], [max words=1])
           p Generate random gibbrish words.
 
@@ -66,9 +92,9 @@ block content
 
       .row
         .col-md-12
-          h3
+          h4
             a(name="blokk") +blokk([blocks=0], [color='#343434'])
-          p Generate text like blocks.
+          p Generate blocks that look like text.
 
       .row
         .col-md-6
@@ -88,11 +114,13 @@ block content
 
       .row
         .col-md-12
-          h3
+          h4
             a(name="image") +image({category, width, height})
-          p <code>avatar</code>, <code>abstract</code>, <code>animals</code>, <code>business</code>, <code>cats</code>,
-            <code>city</code>, <code>food</code>, <code>nightlife</code>, <code>fashion</code>, <code>people</code>,
-            <code>nature</code>, <code>sports</code>, <code>technics</code>, <code>transport</code>
+          div.image-mixin
+            p Generates an <code><img></code> tag with a random image from <a href="http://lorempixel.com">lorempixel.com</a>.
+            p Available image categories: <code>avatar</code>, <code>abstract</code>, <code>animals</code>, <code>business</code>, <code>cats</code>,
+              <code>city</code>, <code>food</code>, <code>nightlife</code>, <code>fashion</code>, <code>people</code>,
+              <code>nature</code>, <code>sports</code>, <code>technics</code>, <code>transport</code>.
 
       .row
         .col-md-6
@@ -120,7 +148,7 @@ block content
 
       .row
         .col-md-12
-          h3
+          h4
             a(name="placeholder") +placeholder({width, height, bgColor, fgColor, text})
 
       .row
@@ -141,7 +169,7 @@ block content
 
       .row
         .col-md-12
-          h3
+          h4
             a(name="maybe") +maybe
 
       .row
@@ -154,7 +182,7 @@ block content
 
       .row
         .col-md-12
-          h3
+          h4
             a(name="times") +times(n)
 
       .row
@@ -167,7 +195,7 @@ block content
 
       .row
         .col-md-12
-          h3
+          h4
             a(name="rand") +rand([min=0], [max=1])
 
       .row
@@ -188,7 +216,7 @@ block content
 
       .row
         .col-md-12
-          h3
+          h4
             a(name="wrap") +wrap('tag', array)
 
       .row
@@ -202,7 +230,7 @@ block content
       h2 Javascript
       .row
         .col-md-12
-          h3
+          h4
             a(name="name") name
 
       .row

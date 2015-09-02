@@ -1,5 +1,9 @@
 @import (npm) "twbs";
 
+@import "./footer.less";
+@import "./highlighting.less";
+@import "./parameter-lists.less";
+
 @jade: #00a86b;
 @brand-primary: @jade;
 @grid-float-breakpoint: @screen-md-min;
@@ -30,10 +34,18 @@
   }
 }
 
-@import "./footer.less";
-@import "./highlighting.less";
-@import "./parameter-lists.less";
+.sidebar{
+  position: fixed;
+  top: 30px;
+  ul {
+    list-style: none;
+    padding: 0 0 0 15px;
+  }
+}
 
+img {
+  max-width: 400px;
+}
 
 .logo-container {
   text-align: center;
@@ -42,6 +54,98 @@
   padding-bottom: 50px;
 }
 
+h1 {
+  // border-bottom: 1px solid #eee;
+  // padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+h2 + div {
+  h4 {
+    margin-top: 10px;
+  }
+}
+
+h4 {
+  margin-top: 40px;
+  a {
+    &:hover {
+      color: #00a86b;
+      text-decoration: none;
+    }
+  }
+}
+
+blockquote {
+  padding: 8px 20px;
+  p {
+    color: #777;
+    font-size: 18px;
+  }
+}
+
 p {
   font-size: 1.2em;
 }
+
+.image-mixin {
+  code {
+    font-size: 80%;
+  }
+}
+
+/**
+ * Link placement and hover behavior.
+ */
+.anchorjs-link {
+  position: absolute;
+  opacity: 0;
+  text-decoration: none;
+  font-size: 100%;
+  color: inherit !important;
+  // left: -20px;
+}
+@media (max-width: 768px) {
+  // do not display AnchorJS icon on less than 768px view point
+  .anchorjs-link {
+    display: none;
+  }
+}
+*:hover > .anchorjs-link,
+.anchorjs-link:focus {
+  opacity: .75;
+  // To fade links as they appear, change transition-property from 'color' to 'all'
+  -webkit-transition: color .16s linear;
+  -moz-transition: color .16s linear;
+  -o-transition: color .16s linear;
+  transition: color .16s linear;
+}
+
+*:hover > .anchorjs-link:hover,
+.anchorjs-link:focus {
+  text-decoration: none !important; // do not underline
+  opacity: 1;
+}
+
+/**
+ * Make screen-reader friendly description text visually hidden.
+ */
+.anchorjs-description {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/**
+ * Reasonable default styles.
+ * Feel free to override or replace these with your own.
+ */
+// .anchorjs-link:link    { color: #DFD487; }
+// .anchorjs-link:visited { color: #DFD487; }
+// .anchorjs-link:hover   { color: #EC7963; }
+// .anchorjs-link:active  { color: #EC7963; }
