@@ -1,18 +1,28 @@
-mixin cdn()
-  - foundation_version = '5.5.0'
-  - fontAwsome_version = '4.3.0'
+mixin foundation()
+  - foundation_version = '5.5.2'
+  - fontAwsome_version = '4.4.0'
 
   link(type='text/css', rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/foundation/#{foundation_version}/css/normalize.min.css")
   link(type='text/css', rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/#{fontAwsome_version}/css/font-awesome.min.css")
-  link(type='text/css', rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/foundation/#{foundation_version}/css/foundation.min.css")
 
   script(type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/foundation/#{foundation_version}/js/vendor/jquery.js")
   script(type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/foundation/#{foundation_version}/js/vendor/fastclick.js")
   script(type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/foundation/#{foundation_version}/js/foundation.min.js")
 
-mixin init()
   script.
     $(document).foundation();
 
+mixin jquery()
+  - jquery_version = '3.0.0-alpha1'
+
+  script(type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/jquery/#{jquery_version}/jquery.min.js")
+
+mixin bootstrap()
+  - bootstrap_version = '3.3.5'
+
+  link(type='text/css', rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/#{bootstrap_version}/css/bootstrap.min.css")
+  link(type='text/css', rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/#{bootstrap_version}/css/bootstrap-theme.min.css")
+
+  script(type="text/javascript", src="https://maxcdn.bootstrapcdn.com/bootstrap/#{bootstrap_version}/js/bootstrap.min.js")
 
 
