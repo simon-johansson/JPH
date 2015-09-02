@@ -4,6 +4,7 @@ html
     meta(charset='utf-8')
     title Jade Prototyping Helper
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet")
     link(rel='stylesheet', href="/style/bundle.css")
     include ../includes/mixins.jade
   body
@@ -51,7 +52,8 @@ html
             a(href='https://github.com/jadejs/jade/graphs/contributors') many others
             |.
     include ../includes/ga.jade
-    script(src=path("/client.js"))
-    //- script(src="/scripts/bundle.js")
     script(src="http://code.jquery.com/jquery-2.1.1.min.js")
     script(src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js")
+    script(src=path("/client.js"))
+    //- script(src="/scripts/bundle.js")
