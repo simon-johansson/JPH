@@ -3,9 +3,9 @@ mixin image()
   - var args = Array.prototype.slice.call(arguments);
   - var categories = ['abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife', 'fashion', 'people', 'nature', 'sports', 'technics', 'transport'];
   if lodash.isObject(args[0])
-    - var width = args[0].width
-    - var height = args[0].height
-    - var category = args[0].category
+    - var width = args[0].width || args[0].w
+    - var height = args[0].height || args[0].h
+    - var category = args[0].category || args[0].c
   else
     - var width = args[0]
     - var height = args[1]
@@ -14,5 +14,5 @@ mixin image()
     - category = lodash.sample(categories);
   img(
     src="#{image[category](width, height)}",
-    alt="Random image of #{category}",
+    alt="Random image of some #{category}",
   )&attributes(attributes)
