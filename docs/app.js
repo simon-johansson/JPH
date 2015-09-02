@@ -21,6 +21,7 @@ CodeMirror.loadMode('xml');//dep of htmlmixed
 CodeMirror.loadMode('htmlmixed');
 CodeMirror.loadMode('javascript');
 CodeMirror.loadMode('css');
+CodeMirror.loadMode('shell');
 
 filters.jadesrc = highlightJade;
 // filters.jadesrc = function(jade) {
@@ -34,6 +35,9 @@ filters.jssrc = function (js) {
 };
 filters.csssrc = function (css) {
   return CodeMirror.highlight(css, {name: 'css'});
+};
+filters.shellsrc = function (shell) {
+  return CodeMirror.highlight(shell, {name: 'shell'});
 };
 
 // view engine setup
